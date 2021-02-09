@@ -1,0 +1,10 @@
+import { a as patchEsm, b as bootstrapLazy } from './index-d5b045a7.js';
+var defineCustomElements = function (win, options) {
+    if (typeof window !== 'undefined') {
+        return patchEsm().then(function () {
+            bootstrapLazy([["stellar-wallet", [[1, "stellar-wallet"]]]], options);
+        });
+    }
+    return Promise.resolve();
+};
+export { defineCustomElements };

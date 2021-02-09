@@ -1,0 +1,17 @@
+import { registerInstance as __stencil_registerInstance } from "@stencil/core";
+import * as StellarSdk from 'stellar-sdk';
+export const Wallet = class {
+    constructor(hostRef) {
+        __stencil_registerInstance(this, hostRef);
+    }
+    render() {
+        return [
+            {},
+            !!StellarSdk
+                ? 'The StellarSdk is xxx ready to rock 🤘'
+                : 'Uh oh, the StellarSdk is missing 😱'
+        ];
+    }
+    static get style() { return "STYLE_TEXT_PLACEHOLDER:stellar-wallet"; }
+};
+/h1>;;

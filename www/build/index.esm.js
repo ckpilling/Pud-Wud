@@ -1,6 +1,6 @@
 import './global-57908b51.js';
-import { r as require$$0, p as process } from './empty-f8128c54.js';
-import { c as createCommonjsModule, a as commonjsRequire } from './_commonjsHelpers-0e669643.js';
+import { r as require$$0, p as process } from './empty-d4a9a4e2.js';
+import { g as getCjsExportFromNamespace, c as createCommonjsModule, a as commonjsRequire } from './_commonjsHelpers-0e669643.js';
 
 const __dirname = '/home/chris/wallet/node_modules/module-alias';
 
@@ -209,7 +209,7 @@ function basename(path, ext) {
 function extname(path) {
   return splitPath(path)[3];
 }
-const nodePath = {
+const path = {
   extname: extname,
   basename: basename,
   dirname: dirname,
@@ -238,6 +238,23 @@ var substr = 'ab'.substr(-1) === 'b' ?
         return str.substr(start, len);
     }
 ;
+
+const path$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  resolve: resolve,
+  normalize: normalize,
+  isAbsolute: isAbsolute,
+  join: join,
+  relative: relative,
+  sep: sep,
+  delimiter: delimiter,
+  dirname: dirname,
+  basename: basename,
+  extname: extname,
+  'default': path
+});
+
+const nodePath = getCjsExportFromNamespace(path$1);
 
 var moduleAlias = createCommonjsModule(function (module) {
 'use strict';

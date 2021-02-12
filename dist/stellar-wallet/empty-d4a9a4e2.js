@@ -1,4 +1,5 @@
 import { g as global } from './global-57908b51.js';
+import { g as getCjsExportFromNamespace } from './_commonjsHelpers-0e669643.js';
 
 // shim for using process in browser
 // based off https://github.com/defunctzombie/node-process/blob/master/browser.js
@@ -222,6 +223,13 @@ var browser$1 = {
   uptime: uptime
 };
 
-const require$$0 = {};
+const empty = {};
+
+const empty$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': empty
+});
+
+const require$$0 = getCjsExportFromNamespace(empty$1);
 
 export { nextTick as n, browser$1 as p, require$$0 as r };

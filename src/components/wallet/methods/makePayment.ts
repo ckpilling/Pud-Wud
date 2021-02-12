@@ -16,8 +16,22 @@ export default async function makePayment(e: Event) {
   try {
     e.preventDefault();
 
-    let instructions = await this.setPrompt("{Amount} {Destination}");
+    // change to add new trustline
+
+    let instructions = await this.setPrompt("{Amount} {Asset} {Destination}");
     instructions = instructions.split(" ");
+
+    if (!/xlm/gi.test(instructions[1]))
+      instructions[3] = await this.setPrompt(
+        `Who issues the ${instructions[1]} asset?`,
+        "Enter ME to refer to yourself",
+      );
+
+
+    // let instructions = await this.setPrompt("{Amount} {Destination}");
+    // instructions = instructions.split(" ");
+
+    // end of change to add new trustline
 
     const pincode = await this.setPrompt("Enter your keystore pincode");
 
@@ -26,6 +40,13 @@ export default async function makePayment(e: Event) {
     const keypair = Keypair.fromSecret(
       sjcl.decrypt(pincode, this.account.keystore),
     );
+
+    // change added here for trustline 
+
+    if (/me/gi.test(instructions[3])) instructions[3] = keypair.publicKey();
+
+
+    // chnage ends
 
     this.error = null;
     this.loading = { ...this.loading, pay: true };
@@ -42,8 +63,13 @@ export default async function makePayment(e: Event) {
         })
           .addOperation(
             Operation.payment({
-              destination: instructions[1],
-              asset: Asset.native(),
+              destination: instructions[2],
+
+              asset: instructions[3] 
+              ? new Asset(instructions[1], instructions[3]) 
+              : Asset.native(),
+
+              // asset: Asset.native(),
               amount: instructions[0],
             }),
           )

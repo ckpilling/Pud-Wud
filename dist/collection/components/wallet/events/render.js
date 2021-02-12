@@ -8,6 +8,16 @@ export default function render() {
                 h("p", null, this.account.publicKey),
                 h("button", { class: "small", type: "button", onClick: (e) => this.copyAddress(e) }, "Copy Address"),
                 h("button", { class: "small", type: "button", onClick: (e) => this.copySecret(e) }, "Copy Secret")),
+            // add button to issue an asset
+            h("button", { class: this.loading.issueAsset ? "loading" : null, type: "button", onClick: (e) => this.issueAsset(e) },
+                this.loading.issueAsset ? h("stellar-loader", null) : null,
+                " Issue Asset"),
+            // end of button to issue an asset
+            // add a button for trust line asset
+            h("button", { class: this.loading.trust ? "loading" : null, type: "button", onClick: (e) => this.trustAsset(e) },
+                this.loading.trust ? h("stellar-loader", null) : null,
+                " Trust Asset"),
+            // trust line asset end
             h("button", { class: this.loading.pay ? "loading" : null, type: "button", onClick: (e) => this.makePayment(e) },
                 this.loading.pay ? h("stellar-loader", null) : null,
                 " Make Payment"),

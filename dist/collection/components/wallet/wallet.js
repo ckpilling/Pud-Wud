@@ -2,7 +2,8 @@ import componentWillLoad from "./events/componentWillLoad";
 import render from "./events/render";
 import createAccount from "./methods/createAccount";
 import updateAccount from "./methods/updateAccount";
-import makePayment from "./methods/makePayment";
+import trustAsset from "./methods/trustAsset"; // NEW
+import makePayment from "./methods/makePayment"; // UPDATE
 import copyAddress from "./methods/copyAddress";
 import copySecret from "./methods/copySecret";
 import signOut from "./methods/signOut";
@@ -15,10 +16,12 @@ export class Wallet {
         // Stellar methods
         this.createAccount = createAccount;
         this.updateAccount = updateAccount;
-        this.makePayment = makePayment;
+        this.trustAsset = trustAsset; // NEW
+        this.makePayment = makePayment; // UPDATE
         this.copyAddress = copyAddress;
         this.copySecret = copySecret;
         this.signOut = signOut;
+        // issueAsset = issueAsset;
         // Misc methods
         this.setPrompt = setPrompt;
     }

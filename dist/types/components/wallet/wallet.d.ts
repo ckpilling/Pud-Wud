@@ -1,6 +1,7 @@
 import { Server, ServerApi } from "stellar-sdk";
 import createAccount from "./methods/createAccount";
 import updateAccount from "./methods/updateAccount";
+import trustAsset from "./methods/trustAsset";
 import makePayment from "./methods/makePayment";
 import copyAddress from "./methods/copyAddress";
 import copySecret from "./methods/copySecret";
@@ -15,6 +16,7 @@ interface StellarAccount {
 interface Loading {
     fund?: boolean;
     pay?: boolean;
+    trust?: boolean;
     update?: boolean;
 }
 export declare class Wallet {
@@ -27,6 +29,7 @@ export declare class Wallet {
     render(): void;
     createAccount: typeof createAccount;
     updateAccount: typeof updateAccount;
+    trustAsset: typeof trustAsset;
     makePayment: typeof makePayment;
     copyAddress: typeof copyAddress;
     copySecret: typeof copySecret;

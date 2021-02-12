@@ -25,6 +25,33 @@ export default function render() {
           </button>
         </div>,
 
+        // add button to issue an asset
+        <button
+        class={this.loading.issueAsset ? "loading" : null}
+        type="button"
+        onClick={(e) => this.issueAsset(e)}
+      >
+        {this.loading.issueAsset ? <stellar-loader /> : null} Issue Asset
+      </button>,
+
+
+
+
+
+        // end of button to issue an asset
+
+        // add a button for trust line asset
+
+        <button
+        class={this.loading.trust ? "loading" : null}
+        type="button"
+        onClick={(e) => this.trustAsset(e)}
+      >
+        {this.loading.trust ? <stellar-loader /> : null} Trust Asset
+      </button>,
+
+      // trust line asset end
+
         <button
           class={this.loading.pay ? "loading" : null}
           type="button"

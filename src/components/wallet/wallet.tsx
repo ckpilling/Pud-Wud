@@ -1,25 +1,3 @@
-// import { Component, h } from '@stencil/core'
-// import * as StellarSdk from 'stellar-sdk'
-
-// @Component({
-//   tag: 'stellar-wallet',
-//   styleUrl: 'wallet.scss',
-//   shadow: true
-// })
-// export class Wallet {
-//   render() {
-//     return [
-//       <h1>
-//         {
-//         !!StellarSdk
-//         ? 'The StellarSdk is xxx ready to rock 🤘'
-//         : 'Uh oh, the StellarSdk is missing 😱'
-//         }
-//       </h1>
-//     ]
-//   }
-// }
-
 import { Component, State, Prop } from "@stencil/core";
 import { Server, ServerApi } from "stellar-sdk";
 
@@ -28,11 +6,13 @@ import render from "./events/render";
 
 import createAccount from "./methods/createAccount";
 import updateAccount from "./methods/updateAccount";
-import makePayment from "./methods/makePayment";
+import trustAsset from "./methods/trustAsset"; // NEW
+import makePayment from "./methods/makePayment"; // UPDATE
 import copyAddress from "./methods/copyAddress";
 import copySecret from "./methods/copySecret";
 import signOut from "./methods/signOut";
 import setPrompt from "./methods/setPrompt";
+// import issueAsset from "./methods/issueAsset";
 
 import { Prompter } from "@prompt/prompt";
 
@@ -43,8 +23,10 @@ interface StellarAccount {
 }
 
 interface Loading {
+  // UPDATE
   fund?: boolean;
   pay?: boolean;
+  trust?: boolean; // NEW
   update?: boolean;
 }
 
@@ -68,10 +50,12 @@ export class Wallet {
   // Stellar methods
   createAccount = createAccount;
   updateAccount = updateAccount;
-  makePayment = makePayment;
+  trustAsset = trustAsset; // NEW
+  makePayment = makePayment; // UPDATE
   copyAddress = copyAddress;
   copySecret = copySecret;
   signOut = signOut;
+  // issueAsset = issueAsset;
 
   // Misc methods
   setPrompt = setPrompt;
@@ -79,5 +63,3 @@ export class Wallet {
 
 Wallet.prototype.componentWillLoad = componentWillLoad;
 Wallet.prototype.render = render;
-
-

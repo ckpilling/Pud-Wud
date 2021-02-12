@@ -1,6 +1,6 @@
 import { h, r as registerInstance } from './index-844e35db.js';
 import { g as global } from './global-57908b51.js';
-import { p as process, r as require$$0$2, n as nextTick } from './empty-f8128c54.js';
+import { p as process, r as require$$0$2, n as nextTick } from './empty-d4a9a4e2.js';
 import { c as createCommonjsModule, b as commonjsGlobal, a as commonjsRequire, u as unwrapExports, g as getCjsExportFromNamespace } from './_commonjsHelpers-0e669643.js';
 import { l as loGet, a as loHas, b as loMap, c as loOmit } from './lodash-84407634.js';
 
@@ -10351,6 +10351,35 @@ const util = {
   debuglog: debuglog
 };
 
+const util$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    format: format,
+    deprecate: deprecate,
+    debuglog: debuglog,
+    inspect: inspect,
+    isArray: isArray$2,
+    isBoolean: isBoolean,
+    isNull: isNull$1,
+    isNullOrUndefined: isNullOrUndefined,
+    isNumber: isNumber$1,
+    isString: isString$1,
+    isSymbol: isSymbol,
+    isUndefined: isUndefined$1,
+    isRegExp: isRegExp,
+    isObject: isObject$1,
+    isDate: isDate,
+    isError: isError,
+    isFunction: isFunction$1,
+    isPrimitive: isPrimitive,
+    isBuffer: isBuffer$1,
+    log: log,
+    inherits: inherits$1,
+    _extend: _extend,
+    'default': util
+});
+
+const util$2 = getCjsExportFromNamespace(util$1);
+
 var Cursor = function(buffer)
 {
 	if (!(this instanceof Cursor))
@@ -10570,7 +10599,7 @@ Cursor.extend = function(C, proto)
 		parent.call(this, buffer);
 	};
 
-	util.inherits(C, parent);
+	util$2.inherits(C, parent);
 
 	C.extend = parent.extend;
 	C.define = parent.define;
@@ -12780,7 +12809,7 @@ function every(collection, predicate, guard) {
 
 var every_1 = every;
 
-var util$1 = createCommonjsModule(function (module, exports) {
+var util$3 = createCommonjsModule(function (module, exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12821,9 +12850,9 @@ function slicePadding(io, length) {
 }
 });
 
-const util$2 = unwrapExports(util$1);
-var util_1 = util$1.calculatePadding;
-var util_2 = util$1.slicePadding;
+const util$4 = unwrapExports(util$3);
+var util_1 = util$3.calculatePadding;
+var util_2 = util$3.slicePadding;
 
 var cursor$1 = createCommonjsModule(function (module, exports) {
 'use strict';
@@ -12861,7 +12890,7 @@ var Cursor = exports.Cursor = function (_BaseCursor) {
   _createClass(Cursor, [{
     key: 'writeBufferPadded',
     value: function writeBufferPadded(buffer) {
-      var padding = (0, util$1.calculatePadding)(buffer.length);
+      var padding = (0, util$3.calculatePadding)(buffer.length);
       var paddingBuffer = Buffer.alloc(padding);
 
       return this.copyFrom(new Cursor(buffer)).copyFrom(new Cursor(paddingBuffer));
@@ -14582,9 +14611,9 @@ var String = exports.String = function () {
       if (length > this._maxLength) {
         throw new Error('XDR Read Error: Saw ' + length + ' length String,' + ('max allowed is ' + this._maxLength));
       }
-      var padding = (0, util$1.calculatePadding)(length);
+      var padding = (0, util$3.calculatePadding)(length);
       var result = io.slice(length);
-      (0, util$1.slicePadding)(io, padding);
+      (0, util$3.slicePadding)(io, padding);
       return result.buffer();
     }
   }, {
@@ -14658,14 +14687,14 @@ var Opaque = exports.Opaque = function () {
     _classCallCheck(this, Opaque);
 
     this._length = length;
-    this._padding = (0, util$1.calculatePadding)(length);
+    this._padding = (0, util$3.calculatePadding)(length);
   }
 
   _createClass(Opaque, [{
     key: 'read',
     value: function read(io) {
       var result = io.slice(this._length);
-      (0, util$1.slicePadding)(io, this._padding);
+      (0, util$3.slicePadding)(io, this._padding);
       return result.buffer();
     }
   }, {
@@ -14734,9 +14763,9 @@ var VarOpaque = exports.VarOpaque = function () {
       if (length > this._maxLength) {
         throw new Error('XDR Read Error: Saw ' + length + ' length VarOpaque,' + ('max allowed is ' + this._maxLength));
       }
-      var padding = (0, util$1.calculatePadding)(length);
+      var padding = (0, util$3.calculatePadding)(length);
       var result = io.slice(length);
-      (0, util$1.slicePadding)(io, padding);
+      (0, util$3.slicePadding)(io, padding);
       return result.buffer();
     }
   }, {
@@ -35779,7 +35808,7 @@ const qs = {
 };
 
 // Copyright Joyent, Inc. and other Node contributors.
-const require$$0$1 = {
+const url = {
   parse: urlParse$1,
   resolve: urlResolve,
   resolveObject: urlResolveObject,
@@ -36494,6 +36523,16 @@ function parseHost(self) {
   if (host) self.hostname = host;
 }
 
+const url$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    parse: urlParse$1,
+    resolve: urlResolve,
+    resolveObject: urlResolveObject,
+    format: urlFormat,
+    'default': url,
+    Url: Url$1
+});
+
 'use strict';
 
 var domain;
@@ -36967,6 +37006,12 @@ function unwrapListeners(arr) {
   }
   return ret;
 }
+
+const events = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    'default': EventEmitter,
+    EventEmitter: EventEmitter
+});
 
 var hasFetch = isFunction$3(global.fetch) && isFunction$3(global.ReadableStream);
 
@@ -39531,6 +39576,22 @@ const http = {
   STATUS_CODES
 };
 
+const http$1 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    request: request,
+    get: get$1,
+    Agent: Agent,
+    METHODS: METHODS,
+    STATUS_CODES: STATUS_CODES,
+    'default': http
+});
+
+const require$$0$1 = getCjsExportFromNamespace(url$1);
+
+const events$1 = getCjsExportFromNamespace(events);
+
+const http$2 = getCjsExportFromNamespace(http$1);
+
 var parse$3 = require$$0$1.parse;
 
 
@@ -39662,7 +39723,7 @@ function EventSource (url, eventSourceInitDict) {
       options.withCredentials = eventSourceInitDict.withCredentials;
     }
 
-    req = (isSecure ? http : http).request(options, function (res) {
+    req = (isSecure ? http$2 : http$2).request(options, function (res) {
       // Handle HTTP errors
       if (res.statusCode === 500 || res.statusCode === 502 || res.statusCode === 503 || res.statusCode === 504) {
         _emit('error', new Event('error', {status: res.statusCode, message: res.statusMessage}));
@@ -39829,7 +39890,7 @@ function EventSource (url, eventSourceInitDict) {
 
 var eventsource = EventSource;
 
-util.inherits(EventSource, EventEmitter.EventEmitter);
+util$2.inherits(EventSource, events$1.EventEmitter);
 EventSource.prototype.constructor = EventSource; // make stacktraces readable
 
 ['open', 'error', 'message'].forEach(function (method) {
@@ -47816,6 +47877,16 @@ function render() {
                 h("p", null, this.account.publicKey),
                 h("button", { class: "small", type: "button", onClick: (e) => this.copyAddress(e) }, "Copy Address"),
                 h("button", { class: "small", type: "button", onClick: (e) => this.copySecret(e) }, "Copy Secret")),
+            // add button to issue an asset
+            h("button", { class: this.loading.issueAsset ? "loading" : null, type: "button", onClick: (e) => this.issueAsset(e) },
+                this.loading.issueAsset ? h("stellar-loader", null) : null,
+                " Issue Asset"),
+            // end of button to issue an asset
+            // add a button for trust line asset
+            h("button", { class: this.loading.trust ? "loading" : null, type: "button", onClick: (e) => this.trustAsset(e) },
+                this.loading.trust ? h("stellar-loader", null) : null,
+                " Trust Asset"),
+            // trust line asset end
             h("button", { class: this.loading.pay ? "loading" : null, type: "button", onClick: (e) => this.makePayment(e) },
                 this.loading.pay ? h("stellar-loader", null) : null,
                 " Make Payment"),
@@ -48060,15 +48131,71 @@ async function updateAccount(e) {
     }
 }
 
+async function trustAsset(e, asset, issuer, pincode) {
+    try {
+        if (e)
+            e.preventDefault();
+        let instructions;
+        if (asset && issuer)
+            instructions = [asset, issuer];
+        else {
+            instructions = await this.setPrompt("{Asset} {Issuer}");
+            instructions = instructions.split(" ");
+        }
+        pincode = pincode || (await this.setPrompt("Enter your keystore pincode"));
+        if (!instructions || !pincode)
+            return;
+        const keypair = lib_4$1.fromSecret(sjcl_1.decrypt(pincode, this.account.keystore));
+        this.error = null;
+        this.loading = Object.assign(Object.assign({}, this.loading), { trust: true });
+        await this.server
+            .accounts()
+            .accountId(keypair.publicKey())
+            .call()
+            .then(({ sequence }) => {
+            const account = new lib_6$1(keypair.publicKey(), sequence);
+            const transaction = new lib_7$1(account, {
+                fee: lib_8$1,
+                networkPassphrase: lib_5$1.TESTNET,
+            })
+                .addOperation(lib_9$1.changeTrust({
+                asset: new lib_10$1(instructions[0], instructions[1]),
+            }))
+                .setTimeout(0)
+                .build();
+            transaction.sign(keypair);
+            return this.server.submitTransaction(transaction);
+        })
+            .then((res) => console.log(res))
+            .finally(() => {
+            this.loading = Object.assign(Object.assign({}, this.loading), { trust: false });
+            this.updateAccount();
+        });
+    }
+    catch (err) {
+        this.error = handleError(err);
+    }
+}
+
 async function makePayment(e) {
     try {
         e.preventDefault();
-        let instructions = await this.setPrompt("{Amount} {Destination}");
+        // change to add new trustline
+        let instructions = await this.setPrompt("{Amount} {Asset} {Destination}");
         instructions = instructions.split(" ");
+        if (!/xlm/gi.test(instructions[1]))
+            instructions[3] = await this.setPrompt(`Who issues the ${instructions[1]} asset?`, "Enter ME to refer to yourself");
+        // let instructions = await this.setPrompt("{Amount} {Destination}");
+        // instructions = instructions.split(" ");
+        // end of change to add new trustline
         const pincode = await this.setPrompt("Enter your keystore pincode");
         if (!instructions || !pincode)
             return;
         const keypair = lib_4$1.fromSecret(sjcl_1.decrypt(pincode, this.account.keystore));
+        // change added here for trustline 
+        if (/me/gi.test(instructions[3]))
+            instructions[3] = keypair.publicKey();
+        // chnage ends
         this.error = null;
         this.loading = Object.assign(Object.assign({}, this.loading), { pay: true });
         await this.server
@@ -48082,8 +48209,11 @@ async function makePayment(e) {
                 networkPassphrase: lib_5$1.TESTNET,
             })
                 .addOperation(lib_9$1.payment({
-                destination: instructions[1],
-                asset: lib_10$1.native(),
+                destination: instructions[2],
+                asset: instructions[3]
+                    ? new lib_10$1(instructions[1], instructions[3])
+                    : lib_10$1.native(),
+                // asset: Asset.native(),
                 amount: instructions[0],
             }))
                 .setTimeout(0)
@@ -48330,10 +48460,12 @@ const Wallet = class {
         // Stellar methods
         this.createAccount = createAccount;
         this.updateAccount = updateAccount;
-        this.makePayment = makePayment;
+        this.trustAsset = trustAsset; // NEW
+        this.makePayment = makePayment; // UPDATE
         this.copyAddress = copyAddress;
         this.copySecret = copySecret;
         this.signOut = signOut;
+        // issueAsset = issueAsset;
         // Misc methods
         this.setPrompt = setPrompt;
     }

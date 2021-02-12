@@ -1,0 +1,36 @@
+import { registerInstance as __stencil_registerInstance } from "@stencil/core";
+import componentWillLoad from "./events/componentWillLoad";
+import render from "./events/render";
+import createAccount from "./methods/createAccount";
+import updateAccount from "./methods/updateAccount";
+import trustAsset from "./methods/trustAsset"; // NEW
+import makePayment from "./methods/makePayment"; // UPDATE
+import copyAddress from "./methods/copyAddress";
+import copySecret from "./methods/copySecret";
+import signOut from "./methods/signOut";
+import setPrompt from "./methods/setPrompt";
+export const Wallet = class {
+    constructor(hostRef) {
+        __stencil_registerInstance(this, hostRef);
+        this.prompter = { show: false };
+        this.loading = {};
+        this.error = null;
+        // Stellar methods
+        this.createAccount = createAccount;
+        this.updateAccount = updateAccount;
+        this.trustAsset = trustAsset; // NEW
+        this.makePayment = makePayment; // UPDATE
+        this.copyAddress = copyAddress;
+        this.copySecret = copySecret;
+        this.signOut = signOut;
+        // issueAsset = issueAsset;
+        // Misc methods
+        this.setPrompt = setPrompt;
+    }
+    // Component events
+    componentWillLoad() { }
+    render() { }
+    static get style() { return "STYLE_TEXT_PLACEHOLDER:stellar-wallet"; }
+};
+Wallet.prototype.componentWillLoad = componentWillLoad;
+Wallet.prototype.render = render;
